@@ -1,0 +1,16 @@
+from bs4 import BeautifulSoup
+
+# Örnek HTML içeriği
+html_content = """<html>...</html>"""
+soup = BeautifulSoup(html_content, "html.parser")
+
+a = soup.find('a')  # ya da kullandığınız başka bir seçici
+
+if a is not None:
+    link = a.get("href", None)  # .get() ile güvenli erişim
+    if link is not None:
+        print("Bulunan link:", link)
+    else:
+        print("Link özniteliği eksik")
+else:
+    print("Eleman bulunamadı")
